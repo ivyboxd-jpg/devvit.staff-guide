@@ -107,9 +107,9 @@ h1 span.orange { color: var(--orange); }
     margin: 0 auto;
     padding: 0 5%;
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
 }
-.tabs::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+.tabs::-webkit-scrollbar { display: none; }
 
 .tab {
     padding: 20px 25px 20px 0;
@@ -142,11 +142,11 @@ h1 span.orange { color: var(--orange); }
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
-    .role-hero { flex-direction: row; align-items: center; gap: 40px; margin-bottom: 100px; }
+    .role-hero { flex-direction: row; align-items: center; gap: 40px; margin-bottom: 80px; }
 }
 
 .role-icon {
@@ -210,7 +210,7 @@ h1 span.orange { color: var(--orange); }
 .task-list li { margin-bottom: 12px; display: flex; gap: 12px; font-size: 15px; color: #BBB; line-height: 1.4; }
 .task-list li::before { content: "—"; color: var(--orange); font-weight: bold; flex-shrink: 0; }
 
-/* DO & DONTS */
+/* DO & DONTS (ONLY FOR VOLUNTEERS) */
 .grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 60px; }
 @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
@@ -247,16 +247,20 @@ h1 span.orange { color: var(--orange); }
 .c-name { font-family: 'Lexend', sans-serif; font-size: 24px; font-weight: 700; }
 .c-phone { 
     font-family: 'Space Grotesk', sans-serif; 
-    font-size: 18px; 
-    color: var(--orange); /* High visibility orange */
+    font-size: clamp(16px, 4vw, 20px); 
+    color: #FFFFFF; /* High contrast White */
     margin-top: 12px; 
     display: inline-block;
-    background: rgba(255, 116, 57, 0.1);
-    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
     border-radius: 4px;
     letter-spacing: 1px;
-    border: 1px solid rgba(255, 116, 57, 0.2);
+    border: 1px solid var(--border);
+    width: 100%;
+    text-align: center;
 }
+
+@media (min-width: 768px) { .c-phone { width: auto; } }
 
 /* MATRIX TABLE */
 .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -282,7 +286,7 @@ h1 span.orange { color: var(--orange); }
     <div class="brand-logo">v/v</div>
     <h1>Role<br><span class="orange">Guide</span> <span class="purple">2026</span></h1>
     <div class="header-meta">
-        <p class="header-sub">Operational framework for our Liaisons and Mentors. Select your designation to begin.</p>
+        <p class="header-sub">Operational framework for Liaisons and Mentors. Select your designation below.</p>
         <div class="event-details">
             <div class="date-pill-row">
                 <div class="date-pill active">APR 17 — Webinar</div>
@@ -311,7 +315,7 @@ h1 span.orange { color: var(--orange); }
             </div>
             <div class="role-info">
                 <div class="role-title">Volunteer Liaison</div>
-                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">You're Mission Control — embedded in your team to keep velocity high and flag issues early.</p>
+                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">Operational anchor. You keep velocity high and escalate blockers instantly.</p>
             </div>
         </div>
 
@@ -326,7 +330,7 @@ h1 span.orange { color: var(--orange); }
                     <ul class="task-list">
                         <li>Attend the briefing webinar to understand the mission.</li>
                         <li>Review the prep kit and all four problem statements.</li>
-                        <li>Confirm your team roster and verify their presence.</li>
+                        <li>Verify your team roster and verify their presence.</li>
                     </ul>
                 </div>
             </div>
@@ -339,8 +343,8 @@ h1 span.orange { color: var(--orange); }
                     <ul class="task-list">
                         <li>Ensure the team submits their proposal by the 9AM deadline.</li>
                         <li>Check in every 3 hours. Do not wait for them to call you.</li>
-                        <li>Escalate any technical or product blockers to Raghav or Shradha instantly.</li>
-                        <li>Prevent scope creep — ensure they are building the MVP.</li>
+                        <li>Escalate any blockers to Raghav or Shradha instantly.</li>
+                        <li>Prevent scope creep — ensure they build the MVP.</li>
                     </ul>
                 </div>
             </div>
@@ -351,8 +355,8 @@ h1 span.orange { color: var(--orange); }
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
-                        <li>Verify final submission before the hard 7PM deadline.</li>
-                        <li>Help with any last-minute platform or upload issues.</li>
+                        <li>Verify final submission before the 7PM deadline.</li>
+                        <li>Help with any last-minute submission or platform issues.</li>
                         <li>Confirm the team's completion status to Command.</li>
                     </ul>
                 </div>
@@ -373,7 +377,7 @@ h1 span.orange { color: var(--orange); }
                 <ul class="task-list">
                     <li>Make tech decisions or write code for them.</li>
                     <li>Judge or score the team's performance.</li>
-                    <li>Try to solve major issues without notifying Raghav/Shradha.</li>
+                    <li>Solve major issues without notifying Raghav/Shradha.</li>
                 </ul>
             </div>
         </div>
@@ -387,23 +391,23 @@ h1 span.orange { color: var(--orange); }
             </div>
             <div class="role-info">
                 <div class="role-title">Expert Mentor</div>
-                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">You're an SME on call. You raise the quality of the build and unblock technical logic.</p>
+                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">Subject matter expert on call. You raise the quality of the build and sharpen the team's logic.</p>
             </div>
         </div>
 
-        <span class="section-label">Mentorship Scope</span>
+        <span class="section-label">Mentorship Flow</span>
         <div class="timeline">
             <div class="tl-block open" onclick="toggleBlock(this)">
                 <div class="tl-header">
-                    <div><span class="tl-date">APR 18 · ALL DAY</span><div class="tl-title">Consultation</div></div>
+                    <div><span class="tl-date">APR 18 · BUILD DAY</span><div class="tl-title">Active Consultation</div></div>
                     <span>▼</span>
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
                         <li>Be reachable on the designated channel during build hours.</li>
-                        <li>Conduct at least one proactive check-in with your team.</li>
-                        <li>Guide them on API usage and logic architectural decisions.</li>
+                        <li>Conduct at least one proactive check-in with your assigned team.</li>
                         <li>Help them sharpen their problem definition and pitch.</li>
+                        <li>Unblock teams when they are genuinely stuck on logic.</li>
                     </ul>
                 </div>
             </div>
@@ -419,7 +423,7 @@ h1 span.orange { color: var(--orange); }
                     <tr><th>Requirement</th><th>Volunteer</th><th>Mentor</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Primary Focus</td><td style="color:var(--orange)">Ops & Timeline</td><td style="color:var(--purple)">Tech & Logic</td></tr>
+                    <tr><td>Primary Focus</td><td style="color:var(--orange)">Ops & Timeline</td><td style="color:var(--purple)">Quality & Build</td></tr>
                     <tr><td>Availability</td><td>Full 3 Days</td><td>Build Day (Apr 18)</td></tr>
                     <tr><td>Reporting To</td><td>Raghav / Shradha</td><td>Raghav / Shradha</td></tr>
                     <tr><td>First Contact?</td><td>Yes — Operational</td><td>No — Specialized</td></tr>
@@ -435,12 +439,12 @@ h1 span.orange { color: var(--orange); }
             <div class="contact-item">
                 <span class="section-label" style="margin-bottom:10px">Tech & Ops Lead</span>
                 <div class="c-name">Raghav</div>
-                <div class="c-phone">+91 87004 45349</div>
+                <div class="c-phone"></div>
             </div>
             <div class="contact-item">
                 <span class="section-label" style="margin-bottom:10px">Product & Comms Lead</span>
                 <div class="c-name">Shradha</div>
-                <div class="c-phone">+91 90542 01485</div>
+                <div class="c-phone"></div>
             </div>
         </div>
         
