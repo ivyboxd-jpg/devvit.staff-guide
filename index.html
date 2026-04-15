@@ -12,7 +12,6 @@
     --orange: #FF7439;
     --bg: #0E0E0E;
     --surface: #161616;
-    --surface-light: #1C1C1C;
     --text: #FFFFFF;
     --muted: #888888;
     --border: rgba(255, 255, 255, 0.1);
@@ -34,69 +33,49 @@ body {
 
 /* HEADER SECTION */
 header {
-    padding: 80px 5% 40px;
+    padding: 60px 5% 30px;
     max-width: 1200px;
     margin: 0 auto;
-    animation: fadeIn 1s ease-out;
 }
 
 @media (min-width: 768px) {
-    header { padding: 140px 5% 100px; }
+    header { padding: 100px 5% 60px; }
 }
 
 .brand-logo {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 18px;
     letter-spacing: -1px;
 }
 
 h1 {
     font-family: 'Lexend', sans-serif;
-    font-size: clamp(40px, 12vw, 90px);
+    font-size: clamp(34px, 10vw, 80px);
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-h1 span.purple { color: var(--purple); }
-h1 span.orange { color: var(--orange); }
+.orange-t { color: var(--orange); }
+.purple-t { color: var(--purple); }
 
 .header-sub {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--muted);
     max-width: 550px;
 }
-
-.date-pill-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
-.date-pill {
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 11px;
-    color: var(--muted);
-    white-space: nowrap;
-}
-
-.date-pill.active { border-color: var(--orange); color: var(--orange); background: rgba(255, 116, 57, 0.05); }
 
 /* NAVIGATION */
 .nav-container {
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    background: rgba(14, 14, 14, 0.95);
+    background: rgba(14, 14, 14, 0.98);
     backdrop-filter: blur(20px);
     z-index: 100;
 }
@@ -112,41 +91,38 @@ h1 span.orange { color: var(--orange); }
 .tabs::-webkit-scrollbar { display: none; }
 
 .tab {
-    padding: 20px 25px 20px 0;
+    padding: 20px 20px 20px 0;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1px;
     color: var(--muted);
     cursor: pointer;
     transition: var(--transition);
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
 .tab.active { color: var(--text); border-bottom: 3px solid var(--orange); }
 
-/* CONTENT PANELS */
-.content { max-width: 1200px; margin: 0 auto; padding: 40px 5%; }
-@media (min-width: 768px) { .content { padding: 80px 5%; } }
+/* CONTENT */
+.content { max-width: 1200px; margin: 0 auto; padding: 30px 5%; }
 
 .panel { display: none; }
-.panel.active { display: block; animation: slideIn 0.6s ease; }
+.panel.active { display: block; animation: slideIn 0.4s ease-out; }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* HERO */
 .role-hero {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 40px;
 }
 
 @media (min-width: 768px) {
-    .role-hero { flex-direction: row; align-items: center; gap: 40px; margin-bottom: 80px; }
+    .role-hero { flex-direction: row; align-items: center; gap: 30px; margin-bottom: 60px; }
 }
 
 .role-icon {
@@ -158,16 +134,16 @@ h1 span.orange { color: var(--orange); }
     flex-shrink: 0;
 }
 
-.role-title { font-family: 'Lexend', sans-serif; font-size: clamp(28px, 8vw, 42px); font-weight: 800; line-height: 1.1; }
+.role-title { font-family: 'Lexend', sans-serif; font-size: clamp(24px, 6vw, 36px); font-weight: 800; line-height: 1.1; }
 
-/* TIMELINE */
+/* TIMELINES */
 .section-label {
     font-family: 'Space Grotesk', sans-serif;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: block;
 }
 
@@ -175,108 +151,68 @@ h1 span.orange { color: var(--orange); }
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 4px;
-    transition: var(--transition);
     margin-bottom: 12px;
 }
 
 .tl-header {
-    padding: 20px;
+    padding: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
 
-.tl-date {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    color: var(--orange);
-    font-size: 11px;
-}
-
-.tl-title { font-family: 'Lexend', sans-serif; font-size: 18px; font-weight: 700; }
+.tl-title { font-family: 'Lexend', sans-serif; font-size: 16px; font-weight: 700; }
 
 .tl-body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
-    padding: 0 20px;
+    padding: 0 18px;
 }
 
-.tl-block.open .tl-body { max-height: 800px; padding-bottom: 25px; }
-.tl-block.open { border-color: var(--orange); }
+.tl-block.open .tl-body { max-height: 1000px; padding-bottom: 20px; border-top: 1px solid var(--border); padding-top: 18px; }
 
 .task-list { list-style: none; }
-.task-list li { margin-bottom: 12px; display: flex; gap: 12px; font-size: 15px; color: #BBB; line-height: 1.4; }
+.task-list li { margin-bottom: 10px; display: flex; gap: 10px; font-size: 14px; color: #BBB; line-height: 1.5; }
 .task-list li::before { content: "—"; color: var(--orange); font-weight: bold; flex-shrink: 0; }
+.task-list.purple-list li::before { color: var(--purple); }
 
-/* DO & DONTS (ONLY FOR VOLUNTEERS) */
-.grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 60px; }
+/* DO & DONTS GRID */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 40px; }
 @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-.card { padding: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
+.card { padding: 25px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
 .card.do { border-top: 4px solid var(--green); }
 .card.dont { border-top: 4px solid var(--red); }
-.card-title { font-family: 'Lexend', sans-serif; font-size: 18px; margin-bottom: 20px; }
+.card-title { font-family: 'Lexend', sans-serif; font-size: 17px; margin-bottom: 15px; }
 
-/* CONTACT CENTER */
-.command-center {
-    margin-top: 80px;
-    padding-top: 60px;
-    border-top: 1px solid var(--border);
-}
+/* COMMAND CENTER / NUMBERS */
+.command-center { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
 
-.contact-grid { 
-    display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 15px; 
-    margin-top: 30px; 
-}
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
+@media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-@media (min-width: 768px) {
-    .contact-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-}
+.contact-item { background: var(--surface); padding: 25px; border-radius: 6px; border: 1px solid var(--border); }
+.c-name { font-family: 'Lexend', sans-serif; font-size: 22px; font-weight: 700; }
 
-.contact-item { 
-    background: var(--surface); 
-    padding: 30px; 
-    border-radius: 6px; 
-    border: 1px solid var(--border); 
-}
-
-.c-name { font-family: 'Lexend', sans-serif; font-size: 24px; font-weight: 700; }
+/* PHONE NUMBER STYLE - FORCED WHITE */
 .c-phone { 
     font-family: 'Space Grotesk', sans-serif; 
-    font-size: clamp(16px, 4vw, 20px); 
-    color: #FFFFFF; /* High contrast White */
-    margin-top: 12px; 
+    font-size: 20px; 
+    color: #FFFFFF !important; 
+    font-weight: 700;
+    margin-top: 10px; 
     display: inline-block;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 16px;
     border-radius: 4px;
     letter-spacing: 1px;
-    border: 1px solid var(--border);
-    width: 100%;
-    text-align: center;
 }
 
-@media (min-width: 768px) { .c-phone { width: auto; } }
-
-/* MATRIX TABLE */
-.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.matrix { width: 100%; border-collapse: collapse; margin-top: 30px; min-width: 500px; }
-.matrix th, .matrix td { padding: 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
-.matrix th { font-family: 'Space Grotesk', sans-serif; color: var(--muted); text-transform: uppercase; font-size: 11px; }
-
-/* MANTRA BOX */
-.mantra-box {
-    margin-top: 40px;
-    padding: 30px;
-    border-left: 3px solid var(--orange);
-    background: rgba(255, 116, 57, 0.03);
-    border-radius: 0 4px 4px 0;
-}
-.mantra-text { font-family: 'Lexend', sans-serif; font-size: 16px; line-height: 1.6; }
+.matrix-wrapper { overflow-x: auto; margin-top: 20px; }
+.matrix { width: 100%; border-collapse: collapse; min-width: 500px; }
+.matrix th, .matrix td { padding: 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
 
 </style>
 </head>
@@ -284,17 +220,8 @@ h1 span.orange { color: var(--orange); }
 
 <header>
     <div class="brand-logo">v/v</div>
-    <h1>Role<br><span class="orange">Guide</span> <span class="purple">2026</span></h1>
-    <div class="header-meta">
-        <p class="header-sub">Operational framework for Liaisons and Mentors. Select your designation below.</p>
-        <div class="event-details">
-            <div class="date-pill-row">
-                <div class="date-pill active">APR 17 — Webinar</div>
-                <div class="date-pill active">APR 18 — Build</div>
-                <div class="date-pill active">APR 19 — Demo</div>
-            </div>
-        </div>
-    </div>
+    <h1>Role<br><span class="orange-t">Guide</span> <span class="purple-t">2026</span></h1>
+    <p class="header-sub">Operational framework for Liaisons and Mentors. Select your designation to begin.</p>
 </header>
 
 <div class="nav-container">
@@ -311,73 +238,45 @@ h1 span.orange { color: var(--orange); }
     <div class="panel active" id="tab-volunteers">
         <div class="role-hero">
             <div class="role-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF7439" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF7439" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <div class="role-info">
                 <div class="role-title">Volunteer Liaison</div>
-                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">Operational anchor. You keep velocity high and escalate blockers instantly.</p>
+                <p style="color: var(--muted); font-size: 14px;">Operational anchor. You track deadlines and escalate issues to Command.</p>
             </div>
         </div>
 
-        <span class="section-label">Timeline Responsibilities</span>
-        <div class="timeline">
-            <div class="tl-block open" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">PHASE 1 · BEFORE APR 18</span><div class="tl-title">Orientation</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Attend the briefing webinar to understand the mission.</li>
-                        <li>Review the prep kit and all four problem statements.</li>
-                        <li>Verify your team roster and verify their presence.</li>
-                    </ul>
-                </div>
+        <span class="section-label">Timeline & Duties</span>
+        <div class="tl-block open" onclick="toggleBlock(this)">
+            <div class="tl-header">
+                <span class="tl-title">Build Phase Operations</span>
+                <span>▼</span>
             </div>
-            <div class="tl-block" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">PHASE 2 · APR 18</span><div class="tl-title">Build Phase Ops</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Ensure the team submits their proposal by the 9AM deadline.</li>
-                        <li>Check in every 3 hours. Do not wait for them to call you.</li>
-                        <li>Escalate any blockers to Raghav or Shradha instantly.</li>
-                        <li>Prevent scope creep — ensure they build the MVP.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tl-block" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">PHASE 3 · APR 19</span><div class="tl-title">Final Delivery</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Verify final submission before the 7PM deadline.</li>
-                        <li>Help with any last-minute submission or platform issues.</li>
-                        <li>Confirm the team's completion status to Command.</li>
-                    </ul>
-                </div>
+            <div class="tl-body">
+                <ul class="task-list">
+                    <li>Confirm team proposal submission by 9:00 AM Saturday.</li>
+                    <li>Conduct active check-ins every 3 hours.</li>
+                    <li>Monitor for "Scope Creep" and keep the build focused.</li>
+                    <li>Final submission verification by 7:00 PM Sunday.</li>
+                </ul>
             </div>
         </div>
 
         <div class="grid-2">
             <div class="card do">
-                <div class="card-title">✓ Your Job</div>
+                <div class="card-title">✓ Liaison Dos</div>
                 <ul class="task-list">
-                    <li>Be the operational anchor for the team.</li>
-                    <li>Flag problems early — never hide bad news.</li>
-                    <li>Keep the team focused on the deadline.</li>
+                    <li>Flag team blockers immediately to Raghav or Shradha.</li>
+                    <li>Keep the team's morale high and focus sharp.</li>
+                    <li>Ensure all team members are active and present.</li>
                 </ul>
             </div>
             <div class="card dont">
-                <div class="card-title">✗ Not Your Job</div>
+                <div class="card-title">✗ Liaison Don'ts</div>
                 <ul class="task-list">
-                    <li>Make tech decisions or write code for them.</li>
-                    <li>Judge or score the team's performance.</li>
-                    <li>Solve major issues without notifying Raghav/Shradha.</li>
+                    <li>Do not perform technical work or write code.</li>
+                    <li>Do not try to solve major conflicts alone.</li>
+                    <li>Do not miss a scheduled check-in window.</li>
                 </ul>
             </div>
         </div>
@@ -387,70 +286,87 @@ h1 span.orange { color: var(--orange); }
     <div class="panel" id="tab-mentors">
         <div class="role-hero">
             <div class="role-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A7A5FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A7A5FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
             </div>
             <div class="role-info">
                 <div class="role-title">Expert Mentor</div>
-                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">Subject matter expert on call. You raise the quality of the build and sharpen the team's logic.</p>
+                <p style="color: var(--muted); font-size: 14px;">Technical Consultant. You provide logic guidance and architectural support.</p>
             </div>
         </div>
 
-        <span class="section-label">Mentorship Flow</span>
-        <div class="timeline">
-            <div class="tl-block open" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">APR 18 · BUILD DAY</span><div class="tl-title">Active Consultation</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Be reachable on the designated channel during build hours.</li>
-                        <li>Conduct at least one proactive check-in with your assigned team.</li>
-                        <li>Help them sharpen their problem definition and pitch.</li>
-                        <li>Unblock teams when they are genuinely stuck on logic.</li>
-                    </ul>
-                </div>
+        <span class="section-label">Mentorship Scope</span>
+        <div class="tl-block open" onclick="toggleBlock(this)">
+            <div class="tl-header">
+                <span class="tl-title">Saturday Support Flow</span>
+                <span>▼</span>
+            </div>
+            <div class="tl-body">
+                <ul class="task-list purple-list">
+                    <li>Be reachable for team consultations during build hours.</li>
+                    <li>Perform a proactive review of the team's technical logic.</li>
+                    <li>Unblock Devvit API or platform-specific hurdles.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card do" style="border-top-color: var(--purple)">
+                <div class="card-title">✓ Mentor Dos</div>
+                <ul class="task-list purple-list">
+                    <li>Ask questions that challenge the team's assumptions.</li>
+                    <li>Guide teams toward an achievable MVP.</li>
+                    <li>Provide directional advice on API integration.</li>
+                    <li>Notify Command if a team's tech stack is failing.</li>
+                </ul>
+            </div>
+            <div class="card dont">
+                <div class="card-title">✗ Mentor Don'ts</div>
+                <ul class="task-list purple-list">
+                    <li>Do not write the code for the participants.</li>
+                    <li>Do not make product decisions on their behalf.</li>
+                    <li>Do not evaluate or score the final projects.</li>
+                    <li>Do not do the thinking for them—guide it.</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <!-- COMPARE PANEL -->
     <div class="panel" id="tab-compare">
-        <span class="section-label">Capability Matrix</span>
-        <div class="table-wrapper">
+        <span class="section-label">Role Matrix</span>
+        <div class="matrix-wrapper">
             <table class="matrix">
                 <thead>
                     <tr><th>Requirement</th><th>Volunteer</th><th>Mentor</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Primary Focus</td><td style="color:var(--orange)">Ops & Timeline</td><td style="color:var(--purple)">Quality & Build</td></tr>
-                    <tr><td>Availability</td><td>Full 3 Days</td><td>Build Day (Apr 18)</td></tr>
-                    <tr><td>Reporting To</td><td>Raghav / Shradha</td><td>Raghav / Shradha</td></tr>
-                    <tr><td>First Contact?</td><td>Yes — Operational</td><td>No — Specialized</td></tr>
+                    <tr><td>Primary Focus</td><td class="orange-t">Ops & Timeline</td><td class="purple-t">Tech & Logic</td></tr>
+                    <tr><td>First Contact?</td><td>Yes</td><td>Escalated Only</td></tr>
+                    <tr><td>Commitment</td><td>Full 3 Days</td><td>Build Day Only</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- COMMAND CENTER -->
+    <!-- COMMAND CENTER / NUMBERS -->
     <div class="command-center">
-        <span class="section-label">Command Center — Escalations</span>
+        <span class="section-label">Command Center — Direct Escalation</span>
         <div class="contact-grid">
             <div class="contact-item">
-                <span class="section-label" style="margin-bottom:10px">Tech & Ops Lead</span>
+                <span class="section-label" style="margin-bottom:8px">Tech & Ops Lead</span>
                 <div class="c-name">Raghav</div>
-                <div class="c-phone"></div>
+                <div class="c-phone">+91 87004 45349</div>
             </div>
             <div class="contact-item">
-                <span class="section-label" style="margin-bottom:10px">Product & Comms Lead</span>
+                <span class="section-label" style="margin-bottom:8px">Product & Comms Lead</span>
                 <div class="c-name">Shradha</div>
-                <div class="c-phone"></div>
+                <div class="c-phone">+91 90542 01485</div>
             </div>
         </div>
         
-        <div class="mantra-box">
-            <p class="mantra-text">
-                <strong>THE GOLDEN RULE:</strong> If a team is stuck, a member goes quiet, or a deadline is at risk — <strong>contact Raghav or Shradha immediately.</strong> Do not try to handle it yourself first. Surface problems fast so we can solve them together.
+        <div style="margin-top: 30px; padding: 20px; border-left: 3px solid var(--orange); background: rgba(255,116,57,0.05);">
+            <p style="font-family: 'Lexend'; font-size: 14px;">
+                <strong>THE GOLDEN RULE:</strong> If a team is stuck or a deadline is at risk — <strong>contact Raghav or Shradha immediately.</strong> Surface problems fast so we can solve them.
             </p>
         </div>
     </div>
@@ -467,7 +383,7 @@ h1 span.orange { color: var(--orange); }
     }
 
     function toggleBlock(el) {
-        el.classList.toggle('open');
+        el.parentElement.classList.toggle('open');
     }
 </script>
 
