@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- THIS LINE STOPS BROWSERS FROM TURNING NUMBERS BLUE -->
+<meta name="format-detection" content="telephone=no"> 
 <title>Hack & Ship — Role Guide | Devvit</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lexend:wght@400;700;800&family=Space+Grotesk:wght@400;700&display=swap');
@@ -31,51 +33,36 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER SECTION */
+/* HEADER */
 header {
-    padding: 60px 5% 30px;
+    padding: 80px 5% 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-    header { padding: 100px 5% 60px; }
-}
-
-.brand-logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 20px;
-    font-size: 18px;
-    letter-spacing: -1px;
+    header { padding: 120px 5% 80px; }
 }
 
 h1 {
     font-family: 'Lexend', sans-serif;
-    font-size: clamp(34px, 10vw, 80px);
+    font-size: clamp(38px, 10vw, 85px);
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .orange-t { color: var(--orange); }
 .purple-t { color: var(--purple); }
 
-.header-sub {
-    font-size: 16px;
-    color: var(--muted);
-    max-width: 550px;
-}
-
-/* NAVIGATION */
+/* NAV */
 .nav-container {
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    background: rgba(14, 14, 14, 0.98);
+    background: rgba(14, 14, 14, 0.95);
     backdrop-filter: blur(20px);
     z-index: 100;
 }
@@ -88,15 +75,14 @@ h1 {
     overflow-x: auto;
     scrollbar-width: none;
 }
-.tabs::-webkit-scrollbar { display: none; }
 
 .tab {
-    padding: 20px 20px 20px 0;
+    padding: 20px 25px 20px 0;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 11px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     color: var(--muted);
     cursor: pointer;
     transition: var(--transition);
@@ -106,122 +92,93 @@ h1 {
 .tab.active { color: var(--text); border-bottom: 3px solid var(--orange); }
 
 /* CONTENT */
-.content { max-width: 1200px; margin: 0 auto; padding: 30px 5%; }
-
+.content { max-width: 1200px; margin: 0 auto; padding: 40px 5%; }
 .panel { display: none; }
-.panel.active { display: block; animation: slideIn 0.4s ease-out; }
+.panel.active { display: block; animation: slideIn 0.5s ease; }
 
 @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* HERO */
+/* CARDS */
 .role-hero {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 20px;
+    margin-bottom: 50px;
 }
-
 @media (min-width: 768px) {
-    .role-hero { flex-direction: row; align-items: center; gap: 30px; margin-bottom: 60px; }
+    .role-hero { flex-direction: row; align-items: center; gap: 40px; margin-bottom: 80px; }
 }
 
-.role-icon {
-    width: 60px; height: 60px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
+.role-title { font-family: 'Lexend', sans-serif; font-size: clamp(26px, 7vw, 38px); font-weight: 800; }
 
-.role-title { font-family: 'Lexend', sans-serif; font-size: clamp(24px, 6vw, 36px); font-weight: 800; line-height: 1.1; }
-
-/* TIMELINES */
 .section-label {
     font-family: 'Space Grotesk', sans-serif;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     display: block;
 }
 
-.tl-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-bottom: 12px;
-}
-
-.tl-header {
-    padding: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.tl-title { font-family: 'Lexend', sans-serif; font-size: 16px; font-weight: 700; }
-
-.tl-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    padding: 0 18px;
-}
-
-.tl-block.open .tl-body { max-height: 1000px; padding-bottom: 20px; border-top: 1px solid var(--border); padding-top: 18px; }
+.tl-block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 12px; }
+.tl-header { padding: 20px; display: flex; justify-content: space-between; cursor: pointer; }
+.tl-title { font-family: 'Lexend', sans-serif; font-size: 17px; font-weight: 700; }
+.tl-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 20px; }
+.tl-block.open .tl-body { max-height: 800px; padding-bottom: 25px; border-top: 1px solid var(--border); padding-top: 20px; }
 
 .task-list { list-style: none; }
-.task-list li { margin-bottom: 10px; display: flex; gap: 10px; font-size: 14px; color: #BBB; line-height: 1.5; }
-.task-list li::before { content: "—"; color: var(--orange); font-weight: bold; flex-shrink: 0; }
+.task-list li { margin-bottom: 12px; display: flex; gap: 12px; font-size: 14px; color: #BBB; }
+.task-list li::before { content: "—"; color: var(--orange); font-weight: bold; }
 .task-list.purple-list li::before { color: var(--purple); }
 
-/* DO & DONTS GRID */
-.grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 40px; }
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 50px; }
 @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-.card { padding: 25px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
+.card { padding: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
 .card.do { border-top: 4px solid var(--green); }
 .card.dont { border-top: 4px solid var(--red); }
-.card-title { font-family: 'Lexend', sans-serif; font-size: 17px; margin-bottom: 15px; }
+.card-title { font-family: 'Lexend', sans-serif; font-size: 18px; margin-bottom: 20px; }
 
-/* COMMAND CENTER / NUMBERS */
-.command-center { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
-
-.contact-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
+/* COMMAND CENTER / PHONE NUMBERS */
+.command-center { margin-top: 80px; padding-top: 60px; border-top: 1px solid var(--border); }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
 @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-.contact-item { background: var(--surface); padding: 25px; border-radius: 6px; border: 1px solid var(--border); }
-.c-name { font-family: 'Lexend', sans-serif; font-size: 22px; font-weight: 700; }
+.contact-item { background: var(--surface); padding: 30px; border-radius: 6px; border: 1px solid var(--border); }
+.c-name { font-family: 'Lexend', sans-serif; font-size: 24px; font-weight: 700; }
 
-/* PHONE NUMBER STYLE - FORCED WHITE */
 .c-phone { 
     font-family: 'Space Grotesk', sans-serif; 
-    font-size: 20px; 
+    font-size: 18px; 
+    /* FORCING WHITE COLOR AND REMOVING ANY AUTO-BLUE STYLING */
     color: #FFFFFF !important; 
-    font-weight: 700;
+    text-decoration: none !important;
     margin-top: 10px; 
     display: inline-block;
-    background: rgba(255, 255, 255, 0.08);
-    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
     border-radius: 4px;
     letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.c-phone span, .c-phone a {
+    color: #FFFFFF !important;
+    text-decoration: none !important;
 }
 
 .matrix-wrapper { overflow-x: auto; margin-top: 20px; }
 .matrix { width: 100%; border-collapse: collapse; min-width: 500px; }
-.matrix th, .matrix td { padding: 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
+.matrix th, .matrix td { padding: 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13px; }
 
 </style>
 </head>
 <body>
 
 <header>
-    <div class="brand-logo">v/v</div>
     <h1>Role<br><span class="orange-t">Guide</span> <span class="purple-t">2026</span></h1>
-    <p class="header-sub">Operational framework for Liaisons and Mentors. Select your designation to begin.</p>
+    <p style="color:var(--muted); font-size:17px;">Operational brief for Liaisons and Mentors.</p>
 </header>
 
 <div class="nav-container">
@@ -237,46 +194,32 @@ h1 {
     <!-- VOLUNTEERS PANEL -->
     <div class="panel active" id="tab-volunteers">
         <div class="role-hero">
-            <div class="role-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF7439" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <div class="role-info">
-                <div class="role-title">Volunteer Liaison</div>
-                <p style="color: var(--muted); font-size: 14px;">Operational anchor. You track deadlines and escalate issues to Command.</p>
-            </div>
+            <div class="role-title">Volunteer Liaison</div>
         </div>
-
-        <span class="section-label">Timeline & Duties</span>
+        <span class="section-label">Mission Brief</span>
         <div class="tl-block open" onclick="toggleBlock(this)">
-            <div class="tl-header">
-                <span class="tl-title">Build Phase Operations</span>
-                <span>▼</span>
-            </div>
+            <div class="tl-header"><span class="tl-title">Core Operations</span><span>▼</span></div>
             <div class="tl-body">
                 <ul class="task-list">
-                    <li>Confirm team proposal submission by 9:00 AM Saturday.</li>
-                    <li>Conduct active check-ins every 3 hours.</li>
-                    <li>Monitor for "Scope Creep" and keep the build focused.</li>
-                    <li>Final submission verification by 7:00 PM Sunday.</li>
+                    <li>Ensure team proposal is submitted by 9:00 AM.</li>
+                    <li>Check in with your team every 3 hours.</li>
+                    <li>Escalate blockers to Raghav or Shradha instantly.</li>
                 </ul>
             </div>
         </div>
-
         <div class="grid-2">
             <div class="card do">
                 <div class="card-title">✓ Liaison Dos</div>
                 <ul class="task-list">
-                    <li>Flag team blockers immediately to Raghav or Shradha.</li>
-                    <li>Keep the team's morale high and focus sharp.</li>
-                    <li>Ensure all team members are active and present.</li>
+                    <li>Keep team morale and velocity high.</li>
+                    <li>Surface problems fast — don't hide issues.</li>
                 </ul>
             </div>
             <div class="card dont">
                 <div class="card-title">✗ Liaison Don'ts</div>
                 <ul class="task-list">
-                    <li>Do not perform technical work or write code.</li>
-                    <li>Do not try to solve major conflicts alone.</li>
-                    <li>Do not miss a scheduled check-in window.</li>
+                    <li>Do not do the technical work for them.</li>
+                    <li>Do not try to solve major crises alone.</li>
                 </ul>
             </div>
         </div>
@@ -285,72 +228,56 @@ h1 {
     <!-- MENTORS PANEL -->
     <div class="panel" id="tab-mentors">
         <div class="role-hero">
-            <div class="role-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A7A5FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            </div>
-            <div class="role-info">
-                <div class="role-title">Expert Mentor</div>
-                <p style="color: var(--muted); font-size: 14px;">Technical Consultant. You provide logic guidance and architectural support.</p>
-            </div>
+            <div class="role-title">Expert Mentor</div>
         </div>
-
-        <span class="section-label">Mentorship Scope</span>
+        <span class="section-label">Mentorship Flow</span>
         <div class="tl-block open" onclick="toggleBlock(this)">
-            <div class="tl-header">
-                <span class="tl-title">Saturday Support Flow</span>
-                <span>▼</span>
-            </div>
+            <div class="tl-header"><span class="tl-title">Technical Support</span><span>▼</span></div>
             <div class="tl-body">
                 <ul class="task-list purple-list">
-                    <li>Be reachable for team consultations during build hours.</li>
-                    <li>Perform a proactive review of the team's technical logic.</li>
-                    <li>Unblock Devvit API or platform-specific hurdles.</li>
+                    <li>Be reachable on Saturday for team consultations.</li>
+                    <li>Help teams unblock Devvit logic hurdles.</li>
+                    <li>Proactively check your team's architecture.</li>
                 </ul>
             </div>
         </div>
-
         <div class="grid-2">
             <div class="card do" style="border-top-color: var(--purple)">
                 <div class="card-title">✓ Mentor Dos</div>
                 <ul class="task-list purple-list">
-                    <li>Ask questions that challenge the team's assumptions.</li>
-                    <li>Guide teams toward an achievable MVP.</li>
-                    <li>Provide directional advice on API integration.</li>
-                    <li>Notify Command if a team's tech stack is failing.</li>
+                    <li>Ask questions that challenge their scope.</li>
+                    <li>Guide them toward an achievable MVP.</li>
+                    <li>Alert Command if a team is failing technically.</li>
                 </ul>
             </div>
             <div class="card dont">
                 <div class="card-title">✗ Mentor Don'ts</div>
                 <ul class="task-list purple-list">
-                    <li>Do not write the code for the participants.</li>
-                    <li>Do not make product decisions on their behalf.</li>
-                    <li>Do not evaluate or score the final projects.</li>
-                    <li>Do not do the thinking for them—guide it.</li>
+                    <li>Do not write the code for the team.</li>
+                    <li>Do not make product decisions for them.</li>
+                    <li>Do not evaluate final presentations.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- COMPARE PANEL -->
+    <!-- COMPARE -->
     <div class="panel" id="tab-compare">
-        <span class="section-label">Role Matrix</span>
         <div class="matrix-wrapper">
             <table class="matrix">
-                <thead>
-                    <tr><th>Requirement</th><th>Volunteer</th><th>Mentor</th></tr>
-                </thead>
+                <thead><tr><th>Feature</th><th>Volunteer</th><th>Mentor</th></tr></thead>
                 <tbody>
-                    <tr><td>Primary Focus</td><td class="orange-t">Ops & Timeline</td><td class="purple-t">Tech & Logic</td></tr>
-                    <tr><td>First Contact?</td><td>Yes</td><td>Escalated Only</td></tr>
-                    <tr><td>Commitment</td><td>Full 3 Days</td><td>Build Day Only</td></tr>
+                    <tr><td>Focus</td><td class="orange-t">Operations</td><td class="purple-t">Technical</td></tr>
+                    <tr><td>Availability</td><td>Full 3 Days</td><td>Build Day</td></tr>
+                    <tr><td>Reporting To</td><td>Command</td><td>Command</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <!-- COMMAND CENTER / NUMBERS -->
+    <!-- COMMAND CENTER -->
     <div class="command-center">
-        <span class="section-label">Command Center — Direct Escalation</span>
+        <span class="section-label">Command Center — Escalations</span>
         <div class="contact-grid">
             <div class="contact-item">
                 <span class="section-label" style="margin-bottom:8px">Tech & Ops Lead</span>
@@ -364,9 +291,9 @@ h1 {
             </div>
         </div>
         
-        <div style="margin-top: 30px; padding: 20px; border-left: 3px solid var(--orange); background: rgba(255,116,57,0.05);">
-            <p style="font-family: 'Lexend'; font-size: 14px;">
-                <strong>THE GOLDEN RULE:</strong> If a team is stuck or a deadline is at risk — <strong>contact Raghav or Shradha immediately.</strong> Surface problems fast so we can solve them.
+        <div style="margin-top: 40px; padding: 25px; border-left: 3px solid var(--orange); background: rgba(255,116,57,0.05);">
+            <p style="font-family: 'Lexend'; font-size: 15px;">
+                <strong>THE GOLDEN RULE:</strong> If a team is stuck — <strong>contact Raghav or Shradha immediately.</strong> No delays.
             </p>
         </div>
     </div>
@@ -388,4 +315,4 @@ h1 {
 </script>
 
 </body>
-</html> 
+</html>
