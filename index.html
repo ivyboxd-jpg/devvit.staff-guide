@@ -29,66 +29,64 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* HEADER SECTION */
 header {
-    padding: 140px 5% 100px;
+    padding: 80px 5% 40px;
     max-width: 1200px;
     margin: 0 auto;
     animation: fadeIn 1s ease-out;
+}
+
+@media (min-width: 768px) {
+    header { padding: 140px 5% 100px; }
 }
 
 .brand-logo {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     color: var(--text);
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 18px;
     letter-spacing: -1px;
 }
 
 h1 {
     font-family: 'Lexend', sans-serif;
-    font-size: clamp(48px, 10vw, 110px);
+    font-size: clamp(40px, 12vw, 90px);
     font-weight: 800;
-    line-height: 0.9;
+    line-height: 0.95;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 h1 span.purple { color: var(--purple); }
 h1 span.orange { color: var(--orange); }
 
-.header-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
 .header-sub {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--muted);
     max-width: 550px;
 }
 
 .date-pill-row {
     display: flex;
-    gap: 12px;
-    margin-top: 40px;
+    gap: 8px;
+    margin-top: 30px;
     flex-wrap: wrap;
 }
 
 .date-pill {
-    padding: 8px 16px;
+    padding: 6px 12px;
     border: 1px solid var(--border);
     border-radius: 4px;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--muted);
+    white-space: nowrap;
 }
 
 .date-pill.active { border-color: var(--orange); color: var(--orange); background: rgba(255, 116, 57, 0.05); }
@@ -98,7 +96,7 @@ h1 span.orange { color: var(--orange); }
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    background: rgba(14, 14, 14, 0.9);
+    background: rgba(14, 14, 14, 0.95);
     backdrop-filter: blur(20px);
     z-index: 100;
 }
@@ -108,70 +106,81 @@ h1 span.orange { color: var(--orange); }
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
 }
+.tabs::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 
 .tab {
-    padding: 30px 40px 30px 0;
+    padding: 20px 25px 20px 0;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-size: 12px;
+    letter-spacing: 1px;
     color: var(--muted);
     cursor: pointer;
     transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .tab.active { color: var(--text); border-bottom: 3px solid var(--orange); }
 
 /* CONTENT PANELS */
-.content { max-width: 1200px; margin: 0 auto; padding: 100px 5%; }
+.content { max-width: 1200px; margin: 0 auto; padding: 40px 5%; }
+@media (min-width: 768px) { .content { padding: 80px 5%; } }
+
 .panel { display: none; }
 .panel.active { display: block; animation: slideIn 0.6s ease; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
 /* HERO */
 .role-hero {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 40px;
-    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+    .role-hero { flex-direction: row; align-items: center; gap: 40px; margin-bottom: 100px; }
 }
 
 .role-icon {
-    width: 80px; height: 80px;
+    width: 60px; height: 60px;
     background: var(--surface);
     border: 1px solid var(--border);
     display: flex; align-items: center; justify-content: center;
     border-radius: 8px;
+    flex-shrink: 0;
 }
 
-.role-title { font-family: 'Lexend', sans-serif; font-size: 42px; font-weight: 800; line-height: 1.1; }
+.role-title { font-family: 'Lexend', sans-serif; font-size: clamp(28px, 8vw, 42px); font-weight: 800; line-height: 1.1; }
 
 /* TIMELINE */
 .section-label {
     font-family: 'Space Grotesk', sans-serif;
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 11px;
-    margin-bottom: 40px;
+    letter-spacing: 3px;
+    font-size: 10px;
+    margin-bottom: 30px;
     display: block;
 }
-
-.timeline { display: flex; flex-direction: column; gap: 15px; }
 
 .tl-block {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 4px;
     transition: var(--transition);
+    margin-bottom: 12px;
 }
 
 .tl-header {
-    padding: 30px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -182,51 +191,88 @@ h1 span.orange { color: var(--orange); }
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
     color: var(--orange);
-    font-size: 12px;
+    font-size: 11px;
 }
 
-.tl-title { font-family: 'Lexend', sans-serif; font-size: 22px; }
+.tl-title { font-family: 'Lexend', sans-serif; font-size: 18px; font-weight: 700; }
 
 .tl-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
-    padding: 0 30px;
+    transition: max-height 0.4s ease;
+    padding: 0 20px;
 }
 
-.tl-block.open .tl-body { max-height: 600px; padding-bottom: 30px; }
+.tl-block.open .tl-body { max-height: 800px; padding-bottom: 25px; }
 .tl-block.open { border-color: var(--orange); }
 
 .task-list { list-style: none; }
-.task-list li { margin-bottom: 15px; display: flex; gap: 15px; font-size: 16px; color: #BBB; }
-.task-list li::before { content: "—"; color: var(--orange); font-weight: bold; }
+.task-list li { margin-bottom: 12px; display: flex; gap: 12px; font-size: 15px; color: #BBB; line-height: 1.4; }
+.task-list li::before { content: "—"; color: var(--orange); font-weight: bold; flex-shrink: 0; }
 
 /* DO & DONTS */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 80px; }
-@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 60px; }
+@media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-.card { padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
+.card { padding: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
 .card.do { border-top: 4px solid var(--green); }
 .card.dont { border-top: 4px solid var(--red); }
-
-.card-title { font-family: 'Lexend', sans-serif; font-size: 18px; margin-bottom: 25px; }
+.card-title { font-family: 'Lexend', sans-serif; font-size: 18px; margin-bottom: 20px; }
 
 /* CONTACT CENTER */
 .command-center {
-    margin-top: 100px;
-    padding-top: 80px;
+    margin-top: 80px;
+    padding-top: 60px;
     border-top: 1px solid var(--border);
 }
 
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-.contact-item { background: var(--surface); padding: 40px; border-radius: 4px; border: 1px solid var(--border); }
-.c-name { font-family: 'Lexend', sans-serif; font-size: 28px; font-weight: 700; }
-.c-phone { font-family: 'Lexend', sans-serif; font-size: 20px; color: var(--purple); margin-top: 10px; display: block; }
+.contact-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 15px; 
+    margin-top: 30px; 
+}
+
+@media (min-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+
+.contact-item { 
+    background: var(--surface); 
+    padding: 30px; 
+    border-radius: 6px; 
+    border: 1px solid var(--border); 
+}
+
+.c-name { font-family: 'Lexend', sans-serif; font-size: 24px; font-weight: 700; }
+.c-phone { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: 18px; 
+    color: var(--orange); /* High visibility orange */
+    margin-top: 12px; 
+    display: inline-block;
+    background: rgba(255, 116, 57, 0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 116, 57, 0.2);
+}
 
 /* MATRIX TABLE */
-.matrix { width: 100%; border-collapse: collapse; margin-top: 40px; }
-.matrix th, .matrix td { padding: 30px; text-align: left; border-bottom: 1px solid var(--border); }
-.matrix th { font-family: 'Space Grotesk', sans-serif; color: var(--muted); text-transform: uppercase; font-size: 12px; }
+.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.matrix { width: 100%; border-collapse: collapse; margin-top: 30px; min-width: 500px; }
+.matrix th, .matrix td { padding: 20px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+.matrix th { font-family: 'Space Grotesk', sans-serif; color: var(--muted); text-transform: uppercase; font-size: 11px; }
+
+/* MANTRA BOX */
+.mantra-box {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 3px solid var(--orange);
+    background: rgba(255, 116, 57, 0.03);
+    border-radius: 0 4px 4px 0;
+}
+.mantra-text { font-family: 'Lexend', sans-serif; font-size: 16px; line-height: 1.6; }
 
 </style>
 </head>
@@ -236,7 +282,7 @@ h1 span.orange { color: var(--orange); }
     <div class="brand-logo">v/v</div>
     <h1>Role<br><span class="orange">Guide</span> <span class="purple">2026</span></h1>
     <div class="header-meta">
-        <p class="header-sub">Everything you need to know about your role — what you'll do, what you won't, and how we make this work together.</p>
+        <p class="header-sub">Operational framework for our Liaisons and Mentors. Select your designation to begin.</p>
         <div class="event-details">
             <div class="date-pill-row">
                 <div class="date-pill active">APR 17 — Webinar</div>
@@ -261,73 +307,53 @@ h1 span.orange { color: var(--orange); }
     <div class="panel active" id="tab-volunteers">
         <div class="role-hero">
             <div class="role-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF7439" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF7439" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <div class="role-info">
-                <div class="role-title">Volunteer /<br>Devvit Liaison</div>
-                <p style="color: var(--muted); margin-top: 15px;">You're Mission Control — embedded in your team from start to finish. Your job is to keep things moving and flag issues early.</p>
+                <div class="role-title">Volunteer Liaison</div>
+                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">You're Mission Control — embedded in your team to keep velocity high and flag issues early.</p>
             </div>
         </div>
 
-        <span class="section-label">Phase-by-Phase Timeline</span>
+        <span class="section-label">Timeline Responsibilities</span>
         <div class="timeline">
-            <!-- BLOCK 1 -->
             <div class="tl-block open" onclick="toggleBlock(this)">
                 <div class="tl-header">
-                    <div><span class="tl-date">APR 17 · BEFORE</span><div class="tl-title">Prep & Webinar</div></div>
+                    <div><span class="tl-date">PHASE 1 · BEFORE APR 18</span><div class="tl-title">Orientation</div></div>
                     <span>▼</span>
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
-                        <li>Attend the webinar — this is your briefing</li>
-                        <li>Read the prep kit completely before the event starts</li>
-                        <li>Know your assigned team, their names, and their background</li>
-                        <li>Understand all four problem statements inside out</li>
-                        <li>Know who the mentors are and how to connect your team to them</li>
+                        <li>Attend the briefing webinar to understand the mission.</li>
+                        <li>Review the prep kit and all four problem statements.</li>
+                        <li>Confirm your team roster and verify their presence.</li>
                     </ul>
                 </div>
             </div>
-            <!-- BLOCK 2 -->
             <div class="tl-block" onclick="toggleBlock(this)">
                 <div class="tl-header">
-                    <div><span class="tl-date">APR 18 · 9AM</span><div class="tl-title">Proposal Submission Window</div></div>
+                    <div><span class="tl-date">PHASE 2 · APR 18</span><div class="tl-title">Build Phase Ops</div></div>
                     <span>▼</span>
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
-                        <li>Make sure your team submits their proposal on time</li>
-                        <li>Flag immediately if a team is confused or struggling with the brief</li>
-                        <li>Report any issues directly to Raghav or Shradha — don't wait</li>
+                        <li>Ensure the team submits their proposal by the 9AM deadline.</li>
+                        <li>Check in every 3 hours. Do not wait for them to call you.</li>
+                        <li>Escalate any technical or product blockers to Raghav or Shradha instantly.</li>
+                        <li>Prevent scope creep — ensure they are building the MVP.</li>
                     </ul>
                 </div>
             </div>
-            <!-- BLOCK 3 -->
             <div class="tl-block" onclick="toggleBlock(this)">
                 <div class="tl-header">
-                    <div><span class="tl-date">APR 18 · AFTERNOON</span><div class="tl-title">Build Phase</div></div>
+                    <div><span class="tl-date">PHASE 3 · APR 19</span><div class="tl-title">Final Delivery</div></div>
                     <span>▼</span>
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
-                        <li>Stay in active contact with your team throughout the build</li>
-                        <li>Be the first person they come to when stuck — before the mentor</li>
-                        <li>Keep them on timeline. Check in regularly</li>
-                        <li>Watch for scope creep — gently pull them back if overbuilding</li>
-                        <li>Escalate blockers to Raghav or Shradha early</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- BLOCK 4 -->
-            <div class="tl-block" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">APR 19 · 7PM</span><div class="tl-title">Final Submission</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Make sure your team submits before the deadline — no exceptions</li>
-                        <li>Help with any last-minute submission issues</li>
-                        <li>Confirm submission to Raghav or Shradha once it's done</li>
+                        <li>Verify final submission before the hard 7PM deadline.</li>
+                        <li>Help with any last-minute platform or upload issues.</li>
+                        <li>Confirm the team's completion status to Command.</li>
                     </ul>
                 </div>
             </div>
@@ -337,19 +363,17 @@ h1 span.orange { color: var(--orange); }
             <div class="card do">
                 <div class="card-title">✓ Your Job</div>
                 <ul class="task-list">
-                    <li>Be the team's operational anchor</li>
-                    <li>Flag problems early, always</li>
-                    <li>Keep them on scope and on time</li>
-                    <li>Escalate to Raghav or Shradha when unsure</li>
+                    <li>Be the operational anchor for the team.</li>
+                    <li>Flag problems early — never hide bad news.</li>
+                    <li>Keep the team focused on the deadline.</li>
                 </ul>
             </div>
             <div class="card dont">
                 <div class="card-title">✗ Not Your Job</div>
                 <ul class="task-list">
-                    <li>Make technical decisions for them</li>
-                    <li>Do any of the work for them</li>
-                    <li>Judge or score anything</li>
-                    <li>Try to solve problems quietly — tell Raghav or Shradha</li>
+                    <li>Make tech decisions or write code for them.</li>
+                    <li>Judge or score the team's performance.</li>
+                    <li>Try to solve major issues without notifying Raghav/Shradha.</li>
                 </ul>
             </div>
         </div>
@@ -359,42 +383,27 @@ h1 span.orange { color: var(--orange); }
     <div class="panel" id="tab-mentors">
         <div class="role-hero">
             <div class="role-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A7A5FF" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A7A5FF" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
             </div>
             <div class="role-info">
                 <div class="role-title">Expert Mentor</div>
-                <p style="color: var(--muted); margin-top: 15px;">You're a subject matter expert on call. Your job is to help teams think better and unblock them when stuck.</p>
+                <p style="color: var(--muted); margin-top: 10px; font-size: 15px;">You're an SME on call. You raise the quality of the build and unblock technical logic.</p>
             </div>
         </div>
 
-        <span class="section-label">Mentorship Phases</span>
+        <span class="section-label">Mentorship Scope</span>
         <div class="timeline">
             <div class="tl-block open" onclick="toggleBlock(this)">
                 <div class="tl-header">
-                    <div><span class="tl-date">BEFORE APR 18</span><div class="tl-title">Preparation</div></div>
+                    <div><span class="tl-date">APR 18 · ALL DAY</span><div class="tl-title">Consultation</div></div>
                     <span>▼</span>
                 </div>
                 <div class="tl-body">
                     <ul class="task-list">
-                        <li>Read through the prep kit — all four problem statements</li>
-                        <li>Identify which problem statement you're most comfortable supporting</li>
-                        <li>Join the mentor group chat</li>
-                        <li>Know your assigned team before the day begins</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tl-block" onclick="toggleBlock(this)">
-                <div class="tl-header">
-                    <div><span class="tl-date">APR 18 · ALL DAY</span><div class="tl-title">Build Phase Support</div></div>
-                    <span>▼</span>
-                </div>
-                <div class="tl-body">
-                    <ul class="task-list">
-                        <li>Be reachable and responsive throughout the day</li>
-                        <li>Check in proactively with your assigned team at least once</li>
-                        <li>Help teams validate their problem definition</li>
-                        <li>Help teams scope down — "what's the smallest version that works?"</li>
-                        <li>Unblock teams on technical or product decision points</li>
+                        <li>Be reachable on the designated channel during build hours.</li>
+                        <li>Conduct at least one proactive check-in with your team.</li>
+                        <li>Guide them on API usage and logic architectural decisions.</li>
+                        <li>Help them sharpen their problem definition and pitch.</li>
                     </ul>
                 </div>
             </div>
@@ -403,18 +412,20 @@ h1 span.orange { color: var(--orange); }
 
     <!-- COMPARE PANEL -->
     <div class="panel" id="tab-compare">
-        <span class="section-label">Side-by-Side Matrix</span>
-        <table class="matrix">
-            <thead>
-                <tr><th>Feature</th><th>Volunteer</th><th>Mentor</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Core Focus</td><td style="color:var(--orange)">Ops & Track</td><td style="color:var(--purple)">Quality & Build</td></tr>
-                <tr><td>Availability</td><td>All 3 Days</td><td>Build Day (Apr 18)</td></tr>
-                <tr><td>Reports To</td><td>Raghav / Shradha</td><td>Raghav / Shradha</td></tr>
-                <tr><td>Does Work?</td><td>No</td><td>No</td></tr>
-            </tbody>
-        </table>
+        <span class="section-label">Capability Matrix</span>
+        <div class="table-wrapper">
+            <table class="matrix">
+                <thead>
+                    <tr><th>Requirement</th><th>Volunteer</th><th>Mentor</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Primary Focus</td><td style="color:var(--orange)">Ops & Timeline</td><td style="color:var(--purple)">Tech & Logic</td></tr>
+                    <tr><td>Availability</td><td>Full 3 Days</td><td>Build Day (Apr 18)</td></tr>
+                    <tr><td>Reporting To</td><td>Raghav / Shradha</td><td>Raghav / Shradha</td></tr>
+                    <tr><td>First Contact?</td><td>Yes — Operational</td><td>No — Specialized</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- COMMAND CENTER -->
@@ -422,20 +433,20 @@ h1 span.orange { color: var(--orange); }
         <span class="section-label">Command Center — Escalations</span>
         <div class="contact-grid">
             <div class="contact-item">
-                <span class="section-label" style="margin-bottom:10px">Co Founder & Tech Lead</span>
+                <span class="section-label" style="margin-bottom:10px">Tech & Ops Lead</span>
                 <div class="c-name">Raghav</div>
-                <span class="c-phone">+91 87004 45349</span> <!-- Replace with real number -->
+                <div class="c-phone">+91 87004 45349</div>
             </div>
             <div class="contact-item">
                 <span class="section-label" style="margin-bottom:10px">Product & Comms Lead</span>
                 <div class="c-name">Shradha</div>
-                <span class="c-phone">+91 9054201485</span> <!-- Replace with real number -->
+                <div class="c-phone">+91 90542 01485</div>
             </div>
         </div>
         
-        <div style="margin-top: 60px; padding: 40px; border-left: 2px solid var(--orange); background: var(--surface);">
-            <p style="font-family: 'Lexend'; font-size: 18px; line-height: 1.6;">
-                <strong>THE GOLDEN RULE:</strong> If something goes wrong — a team is off the rails, someone goes quiet, a submission is at risk — <strong>tell Raghav or Shradha immediately.</strong> Don't try to handle it yourself first. You're expected to surface problems fast so they can be solved.
+        <div class="mantra-box">
+            <p class="mantra-text">
+                <strong>THE GOLDEN RULE:</strong> If a team is stuck, a member goes quiet, or a deadline is at risk — <strong>contact Raghav or Shradha immediately.</strong> Do not try to handle it yourself first. Surface problems fast so we can solve them together.
             </p>
         </div>
     </div>
